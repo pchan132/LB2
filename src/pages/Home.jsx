@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import axios from "axios";
-import { isEqual } from "lodash";
+import isEqual from 'lodash.isequal'
 import Department from "../components/Department";
 import ModalUser from "../components/ModalUser";
 import ModalLetter from "../components/ModalLetter";

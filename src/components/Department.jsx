@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
-import isEqual from "lodash/isequal";
+import isEqual from 'lodash.isequal'
 export default function Department({ userData, onOpen }) {
   const arrayUserData =
     userData && Array.isArray(userData) ? userData : Object.values(userData);

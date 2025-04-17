@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo, useCallback, use } from "react";
 import axios from "axios";
-import { isEqual } from "lodash";
+import isEqual from 'lodash.isequal'
 import { Link } from "react-router-dom";
 
 import TableLetters from "../components/TableLetters";
