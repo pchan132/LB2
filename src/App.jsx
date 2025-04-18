@@ -9,7 +9,7 @@ import Nav from "./components/Nav";
 import ManageMaills from "./pages/ManageMaills";
 import ManageName from "./pages/ManageName";
 import Home from "./pages/Home";
-
+import Login from "./pages/Login";
 function App() {
   return (
     <>
@@ -18,6 +18,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/manage-maills" element={<ManageMaills />} />
           <Route path="/manage-name" element={<ManageName />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
     </>
   );

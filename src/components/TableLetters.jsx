@@ -47,7 +47,11 @@ export default function TableLetters({ dataTable, onEdit, dataDelete, dataUser }
     },
     [onEdit]
   );
-
+  function toLocalDateString(date) {
+    const offset = date.getTimezoneOffset();
+    const localDate = new Date(date.getTime() - offset * 60 * 1000);
+    return localDate.toISOString().split("T")[0];
+  }
   return (
     <>
     <div className="p-4 max-w-7xl mx-auto">
@@ -102,7 +106,7 @@ export default function TableLetters({ dataTable, onEdit, dataDelete, dataUser }
               <th>ลำดับ</th>
               <th>ผู้รับ</th>
               <th>ผู้ส่ง</th>
-              <th>วันที่รับ (วว/ดด/ปปปป)</th>
+              <th>วันที่รับ </th>
               <th>แผนก</th>
               <th>สถานะ</th>
               <th>จัดการ</th>
@@ -110,6 +114,13 @@ export default function TableLetters({ dataTable, onEdit, dataDelete, dataUser }
           </thead>
           <tbody>
             {/* แสดงข้อมูล */}
+            {filteredData.length === 0 && (
+              <tr>
+                <td colSpan="7" className="text-center">
+                  ไม่มีข้อมูล
+                </td>
+              </tr>
+            )}
             {filteredData.map((item, index) => {
               return (
                 <tr key={item.letter_id} className="text-center">
@@ -117,7 +128,7 @@ export default function TableLetters({ dataTable, onEdit, dataDelete, dataUser }
                   <td className="text-base text-black">{item.receiver_name}</td>
                   <td className="text-base text-black">{item.sender_name}</td>
                   <td className="text-base text-black">
-                    {item.received_date ? new Date(item.received_date).toLocaleDateString("th-TH") : ""}
+                    {item.received_date ? toLocalDateString(new Date(item.received_date)) : ""}
                   </td>
                   <td className="text-base text-black">{item.departments}</td>
                   <td>

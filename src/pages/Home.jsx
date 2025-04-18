@@ -10,8 +10,6 @@ export default function Home() {
   const [openModalUser, setOpenModalUser] = useState(false);
   const [userData, setUserData] = useState({});
   const [userName, setUserName] = useState([]);
-  console.log(openModalUser);
-  console.log(onOpen);
   // เปิดรายละเอียดข้อมูล
   const openModal = useCallback((user) => {
     setOnOpen(true);

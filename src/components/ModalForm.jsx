@@ -20,7 +20,20 @@ export default function ModalForm({
     status: "",
   });
 
-  
+  function getLocalToday() {
+    const today = new Date();
+    const offset = today.getTimezoneOffset();
+    const localDate = new Date(today.getTime() - offset * 60 * 1000);
+    return localDate.toISOString().split("T")[0];
+  }
+  const today = getLocalToday();
+  const [date, setDate] = useState(today);
+
+  function toLocalDateString(date) {
+    const offset = date.getTimezoneOffset();
+    const localDate = new Date(date.getTime() - offset * 60 * 1000);
+    return localDate.toISOString().split("T")[0];
+  }
   useEffect(() => {
     if (mode === "edit" && userData) {
       setFormData({
@@ -28,8 +41,8 @@ export default function ModalForm({
         receiver_name: userData?.receiver_name || "",
         sender_name: userData?.sender_name || "",
         received_date: userData.received_date
-          ? userData.received_date.split("T")[0]
-          : "",
+        ? toLocalDateString(new Date(userData.received_date))
+        : "",
         departments: userData?.departments || "",
         status: userData?.status || "NOT", // ถ้าไม่มีค่า ให้ใช้ "NOT"
       });
@@ -38,7 +51,7 @@ export default function ModalForm({
         sheetName: "Letters",
         receiver_name: "",
         sender_name: "",
-        received_date: "",
+        received_date: today, // 🟢 ตั้งค่าเริ่มต้นเป็นวันนี้,
         departments: "",
         status: "NOT",
       });
