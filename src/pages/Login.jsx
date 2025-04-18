@@ -11,7 +11,7 @@ export default function Login() {
     if (username === "admin" && password === "admin4321") {
       navigate("/manage-maills");
     } else {
-      setError("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง");
+      setError("ชื่อผู้ใช้หรือรหัสผ่านผิด");
       setUsername("");
       setPassword("");
     }
