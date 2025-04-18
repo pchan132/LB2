@@ -5,7 +5,7 @@ export default function Nav() {
       <nav className="navbar bg-primary p-4 text-white shadow-lg">
         <div className="navbar-start">
           <h1 className="text-2xl font-bold hover:text-secondary transition">
-            <Link to="/">LOGO</Link>
+            <Link to="/">จดหมายวิทยาลัยเทคนิคลพบุรี</Link>
           </h1>
         </div>
         <div className="navbar-end">
@@ -45,7 +45,7 @@ export default function Nav() {
               </li>
               <li>
                 <Link
-                  to="/manage-maills"
+                  to="/login"
                   className="hover:bg-secondary hover:text-white transition"
                 >
                   แก้ไข
@@ -62,7 +62,7 @@ export default function Nav() {
               จดหมาย
             </Link>
             <Link
-              to="/manage-maills"
+              to="/login"
               className="btn btn-ghost text-xl hover:bg-secondary hover:text-white transition"
             >
               แก้ไข

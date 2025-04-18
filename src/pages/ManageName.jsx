@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import TableName from "../components/TableName";
 import ModalName from "../components/ModalName";
-
+import { Link } from "react-router-dom";
 export default function ManageName() {
   const [dataNameForm, setDataNameForm] = useState([]); // เก็บข้อมูลที่มาจากฟอร์ม
   const [isOpen, setIsOpen] = useState(false);
@@ -87,6 +87,9 @@ export default function ManageName() {
         <div className="w-full max-w-7xl bg-white shadow-lg rounded-lg p-6">
           <div className="flex justify-between items-center mb-6 mt-10 px-5">
             <h1 className="text-3xl font-bold text-gray-800">รายชื่อ</h1>
+            <Link className="btn btn-outline btn-primary" to="/manage-maills">
+                เพิ่มจดหมาย
+              </Link>
             <button
               className="btn btn-primary shadow-lg hover:shadow-xl transition-all"
               onClick={() => openModal("add")}

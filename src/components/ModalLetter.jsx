@@ -5,7 +5,6 @@ export default function ModalLetter({
   userData,
   OpenModalUser,
 }) {
-  console.log(OpenModalUser, "OpenModalUser");
   if (!userData || userData.length === 0) return null;
 
   const [searchTerm, setSearchTerm] = useState(""); // state สำหรับเก็บค่าค้นหา
